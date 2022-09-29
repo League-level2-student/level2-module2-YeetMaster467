@@ -1,5 +1,7 @@
 package _08_LeagueSnake;
 
+import java.awt.Color;
+
 import processing.core.PApplet;
 
 public class LeagueSnake extends PApplet {
@@ -11,6 +13,9 @@ public class LeagueSnake extends PApplet {
      * 
      * Put all the game variables here.
      */
+    Segment head;
+    int foodX;
+    int foodY;
     
 
     
@@ -21,28 +26,34 @@ public class LeagueSnake extends PApplet {
      */
     @Override
     public void settings() {
-        
+        size(500,500);
     }
 
     @Override
     public void setup() {
-        
+        head = new Segment(250,250);
+        frameRate(20);
+        dropFood();
     }
 
     void dropFood() {
         // Set the food in a new random location
-        
+    	foodX = ((int)random(50)*10);
+    	foodY = ((int)random(50)*10);
     }
 
     /*
      * Draw Methods
      * 
      * These methods are used to draw the snake and its food
+     * 
      */
 
     @Override
     public void draw() {
-        
+        background(0,0,0);
+        drawFood();
+        drawSnake();
     }
 
     void drawFood() {
